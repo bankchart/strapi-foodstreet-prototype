@@ -39,6 +39,8 @@ module.exports = {
 
         attrs.cancel_datetime = new Date();
       }
+      const io = strapi.io;
+      io.sockets.emit('update_order_status', JSON.stringify(attrs)); // BAD Performance
     }
   },
 
