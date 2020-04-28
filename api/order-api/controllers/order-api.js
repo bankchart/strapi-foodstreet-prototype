@@ -76,7 +76,8 @@ module.exports = {
 
     const orders = await strapi.query('order')
       .find({
-        customer_id: user.id
+        customer_id: user.id,
+        _sort: 'id:desc'
       });
 
     for (let order of orders) {
