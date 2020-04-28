@@ -10,8 +10,8 @@
     },
     {
       "method": "GET",
-      "path": "/order-api/:transid",
-      "handler": "order-api.findOrderByTransId",
+      "path": "/order-api/orders",
+      "handler": "order-api.findOrderByUser",
       "config": {
         "policies": []
       }

@@ -7,15 +7,15 @@ const { v4: uuidv4 } = require('uuid');
  */
 
 module.exports = {
-  findOrderByTransId: async (ctx, next) => {
-    const transId = ctx.params.transid;
-    console.log('transactionid', transId);
-    const result = await strapi
-      .query('order-detail').find({ 'order': 25 });
-    console.log('result=', result);
+  // findOrderByTransId: async (ctx, next) => {
+  //   const transId = ctx.params.transid;
+  //   console.log('transactionid', transId);
+  //   const result = await strapi
+  //     .query('order-detail').find({ 'order': 25 });
+  //   console.log('result=', result);
 
-    ctx.body = 'find order by transaction id';
-  },
+  //   ctx.body = 'find order by transaction id';
+  // },
   create: async (ctx, next) => {
     try {
       let  response = null;
@@ -69,5 +69,34 @@ module.exports = {
       console.error(e);
       ctx.body = e;
     }
+  },
+  findOrderByUser: async (ctx, next) => {
+    const user = ctx.state.user;
+    const response = [];
+
+    const orders = await strapi.query('order')
+      .find({
+        customer_id: user.id
+      });
+
+    for (let order of orders) {
+      const resp = {
+        customer: ctx.state.user,
+        order: {},
+        menus: []
+      };
+      Object.assign(resp.order, order);
+      const menus = order.id ? await strapi.query('order-detail')
+        .find({
+          order: order.id
+        }) : [];
+      for (let menu of menus) {
+        delete menu.order;
+        delete menu.menu;
+        resp.menus.push(menu);
+      }
+      response.push(resp);
+    }
+    ctx.body = response;
   }
 };
