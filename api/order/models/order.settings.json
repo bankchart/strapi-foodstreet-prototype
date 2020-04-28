@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "orders",
+  "info": {
+    "name": "order"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "trans_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "order_incoming",
+        "order_accept",
+        "order_done",
+        "delivery_shipping",
+        "delivery_received",
+        "cancel"
+      ],
+      "default": "order_incoming",
+      "required": true
+    },
+    "total_price": {
+      "type": "decimal",
+      "required": true
+    },
+    "order_incoming_datetime": {
+      "type": "datetime",
+      "required": true
+    },
+    "order_accept_datetime": {
+      "type": "datetime"
+    },
+    "order_done_datetime": {
+      "type": "datetime"
+    },
+    "delivery_shipping_datetime": {
+      "type": "datetime"
+    },
+    "delivery_received_datetime": {
+      "type": "datetime"
+    },
+    "cancel_datetime": {
+      "type": "datetime"
+    },
+    "created_by": {
+      "type": "string",
+      "default": "ADMIN",
+      "required": true
+    },
+    "updated_by": {
+      "type": "string",
+      "default": "ADMIN",
+      "required": true
+    },
+    "restaurant": {
+      "model": "restaurant"
+    },
+    "customer_id": {
+      "type": "biginteger",
+      "required": true
+    },
+    "driver_id": {
+      "type": "biginteger"
+    },
+    "restaurant_name": {
+      "type": "string"
+    }
+  }
+}

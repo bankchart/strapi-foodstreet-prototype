@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "menus",
+  "info": {
+    "name": "menu"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "menu_image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "created_by": {
+      "type": "string",
+      "default": "ADMIN",
+      "required": true
+    },
+    "updated_by": {
+      "type": "string",
+      "default": "ADMIN",
+      "required": true
+    },
+    "restaurant_name": {
+      "type": "string",
+      "private": false
+    },
+    "restaurant": {
+      "via": "menus",
+      "model": "restaurant"
+    }
+  }
+}

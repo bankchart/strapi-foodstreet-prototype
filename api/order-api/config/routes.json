@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/order-api",
+      "handler": "order-api.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/order-api/:transid",
+      "handler": "order-api.findOrderByTransId",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "restaurants",
+  "info": {
+    "name": "restaurant"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "address": {
+      "type": "richtext",
+      "required": true
+    },
+    "tel": {
+      "type": "string",
+      "required": true
+    },
+    "restaurant_image": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "users": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "restaurants",
+      "dominant": true
+    },
+    "created_by": {
+      "type": "string",
+      "default": "ADMIN",
+      "required": true
+    },
+    "updated_by": {
+      "type": "string",
+      "default": "ADMIN",
+      "required": true
+    },
+    "rating_score": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "max": 5,
+      "min": 0
+    },
+    "menus": {
+      "collection": "menu",
+      "via": "restaurant"
+    }
+  }
+}

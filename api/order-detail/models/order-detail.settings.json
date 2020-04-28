@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "order_details",
+  "info": {
+    "name": "order_detail"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "order": {
+      "model": "order"
+    },
+    "menu": {
+      "model": "menu"
+    },
+    "menu_name": {
+      "type": "string",
+      "required": true
+    },
+    "menu_price": {
+      "type": "decimal",
+      "required": true
+    },
+    "menu_amount": {
+      "type": "integer",
+      "required": true
+    },
+    "created_by": {
+      "type": "string",
+      "default": "ADMIN",
+      "required": true
+    },
+    "updated_by": {
+      "type": "string",
+      "default": "ADMIN",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "feedbacks",
+  "info": {
+    "name": "feedback"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "comment": {
+      "type": "richtext",
+      "required": true
+    },
+    "rating_score": {
+      "type": "float",
+      "required": true
+    },
+    "restaurant": {
+      "model": "restaurant"
+    },
+    "created_by": {
+      "type": "string",
+      "default": "ADMIN",
+      "required": true
+    },
+    "updated_by": {
+      "type": "string",
+      "required": true,
+      "default": "ADMIN"
+    }
+  }
+}
