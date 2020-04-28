@@ -23,7 +23,7 @@ module.exports = {
       const { order, menus } = ctx.request.body;
       const restaurant = await strapi.query('restaurant')
         .findOne({
-          id: order.restaurantId
+          id: order.restaurant
         });
 
       Object.assign(order, {

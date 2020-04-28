@@ -20,8 +20,25 @@ module.exports = {
           }
         });
       });
-      console.log('in beforeSave restaurant_name', p);
       attrs.restaurant_name = await p;
+    }
+    if (model._previousAttributes.status !== attrs.status) {
+       if (attrs.status === 'order_accept') {
+
+        attrs.order_accept_datetime = new Date();
+      } else if (attrs.status === 'order_done') {
+
+        attrs.order_done_datetime = new Date();
+      } else if (attrs.status === 'delivery_shipping') {
+
+        attrs.delivery_shipping_datetime = new Date();
+      } else if (attrs.status === 'delivery_received') {
+
+        attrs.delivery_received_datetime = new Date();
+      } else if (attrs.status === 'cancel') {
+
+        attrs.cancel_datetime = new Date();
+      }
     }
   },
 
