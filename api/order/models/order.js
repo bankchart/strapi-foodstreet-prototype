@@ -20,6 +20,7 @@ module.exports = {
           }
         });
       });
+      console.log('in beforeSave restaurant_name', p);
       attrs.restaurant_name = await p;
     }
   },

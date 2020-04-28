@@ -21,12 +21,17 @@ module.exports = {
       let  response = null;
       const knex = strapi.connections.default;
       const { order, menus } = ctx.request.body;
+      const restaurant = await strapi.query('restaurant')
+        .findOne({
+          id: order.restaurantId
+        });
 
       Object.assign(order, {
         trans_id: uuidv4(),
         status: 'order_incoming',
         order_incoming_datetime: new Date().toISOString(),
-        restaurant: order.restaurantId,
+        restaurant: order.restaurant,
+        restaurant_name: restaurant.name,
         customer_id: ctx.state.user.id,
         created_by: ctx.state.user.id,
         updated_by: ctx.state.user.id,
