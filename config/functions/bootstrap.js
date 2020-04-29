@@ -12,7 +12,7 @@
 
 // module.exports = () => {};
 
-module.exports = () => {
+module.exports = async () => {
   // import socket io
   var io = require('socket.io')(strapi.server);
   io.on('connection', client => {
@@ -21,5 +21,18 @@ module.exports = () => {
         console.log('user disconnected');
     });
   });
+  
+  const jwt = strapi.plugins['users-permissions'].services.jwt.issue({
+    id: 3,
+  })
+
+  console.log(jwt);
+
+  const result = await strapi.plugins['users-permissions'].services.jwt.verify(
+    jwt
+  );
+
+  console.log(result);
+
   strapi.io = io; // register socket io inside strapi main object to use it globally anywhere
 };

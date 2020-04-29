@@ -1,0 +1,69 @@
+$ npx create-strapi-app my-project --quickstart
+npx: installed 84 in 26.078s
+Creating a new Strapi application at /home/xplink/mount-hhd/work/work_xplink/in-house/strapi-food/my-project.
+
+Creating a quickstart project.
+Creating files.
+Dependencies installed successfully.
+
+Your application was created at /home/xplink/mount-hhd/work/work_xplink/in-house/strapi-food/my-project.
+
+Available commands in your project:
+
+  yarn develop
+  Start Strapi in watch mode.
+
+  yarn start
+  Start Strapi without watch mode.
+
+  yarn build
+  Build Strapi admin panel.
+
+  yarn strapi
+  Display all available commands.
+
+You can start by doing:
+
+  cd /home/xplink/mount-hhd/work/work_xplink/in-house/strapi-food/my-project
+  yarn develop
+
+
+> my-project@0.1.0 build /home/xplink/mount-hhd/work/work_xplink/in-house/strapi-food/my-project
+> strapi build "--no-optimization"
+
+Building your admin UI with development configuration ...
+
+✔ Webpack
+  Compiled successfully in 21.78s
+
+Running your Strapi application.
+
+> my-project@0.1.0 develop /home/xplink/mount-hhd/work/work_xplink/in-house/strapi-food/my-project
+> strapi develop
+
+[2020-04-15T07:05:16.117Z] warn The bootstrap function is taking unusually long to execute (3500 miliseconds).
+[2020-04-15T07:05:16.119Z] warn Make sure you call it?
+[2020-04-15T07:05:35.527Z] info File created: /home/xplink/mount-hhd/work/work_xplink/in-house/strapi-food/my-project/extensions/users-permissions/config/jwt.json
+
+ Project information                                                          
+
+┌────────────────────┬──────────────────────────────────────────────────┐
+│ Time               │ Wed Apr 15 2020 14:05:35 GMT+0700 (Indochina Ti… │
+│ Launched in        │ 25988 ms                                         │
+│ Environment        │ development                                      │
+│ Process PID        │ 13110                                            │
+│ Version            │ 3.0.0-beta.19.5 (node v10.15.3)                  │
+└────────────────────┴──────────────────────────────────────────────────┘
+
+ Actions available                                                            
+
+One more thing...
+Create your first administrator 💻 by going to the administration panel at:
+
+┌─────────────────────────────┐
+│ http://localhost:1337/admin │
+└─────────────────────────────┘
+
+[2020-04-15T07:05:35.562Z] debug HEAD /admin (13 ms) 200
+[2020-04-15T07:05:35.566Z] info ⏳ Opening the admin panel...
+
